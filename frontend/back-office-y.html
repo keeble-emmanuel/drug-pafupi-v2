@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Drug pafupi</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <link rel='stylesheet' href="back-office-y.css"/>
+    </head>
+    <body>
+        <div id="loading-screen">
+          <div class="spinner"></div>
+          <p>Loading...</p>
+        </div>
+
+        <div id="completeScreenContainer" class="containerx"> 
+          <svg class="checkmark-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+          </svg>
+        </div>
+        <h1 id="back-office" class='text-center'>back office</h1>
+            
+        <button id="accounts"><img src="account.svg"/></button>
+        <div id ="container">
+          <div id="notifications">
+                  <h2 class="text-center">Notifications</h2>
+                  <ol id="notifications-display">
+
+                  </ol>
+          </div>
+          <!--neter produ-->
+              <div id="new-entry">
+                <h2> new entry</h2>
+                <form>
+                    <input id="generic-name"required placeholder="generic-name"/><label>generic</label>
+                    <input id="trade-name" required placeholder='trade-name'/><label>tradename</label>
+                    <input id="strength"required placeholder="strength"/><label>strength</label>
+                    <select id="stock-stat" color="red">
+                      <option value="alot">lot</option>
+                      <option value="few">few</option>
+                  </select><label>stock</label>
+                    <select id="category" color="red">
+                        <option value="anti-biotic">anti-biotic</option>
+                        <option value="analgesia">analgesia</option>
+                        <option value="corticosteroids">corticosteroids</option>
+                        <option value="anticancer">anticancer</option>
+                        <option value="heamolytic">hemolytic</option>
+                        <option value="anti-protozoa">anti-protozoa</option>
+                        <option value="anti-fungal">anti-fungal</option>
+                        <option value="anti-virus">anti-virus</option>
+                        <option value="antihypertensive">antihypertensive</option>
+                        <option value="anti-asthmatic">antiasthmatic</option>
+                        <option value="anti-acid">anti-acid</option>
+                        <option value="anti-emetic">anti-emetic</option>
+                        <option value="anti-diabetic">anti-diabetic</option>
+                        <option value="anti-diarrhoes">anti-diarrhoes</option>
+                    </select><label>category</label>
+                    <select id="route" color="red">
+                      <option value="oral">oral</option>
+                      <option value="intravenous">intravenous</option>
+                      <option value="intrathecal">intrathecal</option>
+                      <option value="rectal">rectal</option>
+                      <option value="inhalation">inhalation</option>
+                      <option value="subcutaneous">subcutaneous</option>
+                      <option value="topical">topical</option>
+                      <option value="eye-ear">eye-ear-droplets</option>
+                  </select><label>route</label>
+                  <select id="dosage-form" color="red">
+                      <option value="tablet">tablet</option>
+                      <option value="capsules">capsules</option>
+                      <option value="syrup">syrup</option>
+                      <option value="ointment">ointment</option>
+                      <option value="solution">solution</option>
+                      <option value="powder-for-reconstitution">powder-for-reconstitution</option>
+                      <option value="suppositories">suppositories</option>
+                      <option value="aerosols">aerosols</option>
+                  </select><label>dosage-form</label>
+                  <input id="expiry" type="date" placeholder="expiry date"/><label>expiry</label>
+                  <input id ="price" type="number" placeholder="0.00" step="0.01"/><label>MWK</label>
+                </form>
+                <button id="entry-btn" class="back-office-y-btn">Enter Product</button>
+                <button id="cancel-update" class="back-office-y-btn">cancel</button>
+              </div>
+              <!--products-->
+              <div id="entry-preview"class="col-sm-8" >
+                <h2>products appearing on the market</h2>
+                <div id="products-display-div">
+                  
+                </div>
+                
+              </div>
+        <!--end of div-->
+          
+        </div>
+        
+        <div class="container-fluid">            
+            <div class="row">
+            </div>
+            <dialog id="confirm-delete-dialog">
+              <p id="dialog-msg"></p>
+              <button id="confirm-delete-btn" class="back-office-y-btn2">confirm</button>
+              <button id="confirm-close-dialog" class="back-office-y-btn2">cancel</button>
+          </dialog>
+          <div id="promote-div">
+            <div id="promote-div-sub">
+              <h3 id="promote-h3">promote</h3>
+              <input id="new_price_input" placeholder="new price"/><h4 id="promotep">old(MWK )</h4>
+              <div id="promoper"></div>
+            </div>
+            
+            <div class="btn-div">
+                <button id="promote-product"class="back-office-y-btn2">promote</button>
+                <button id="cancel-promotion"class="back-office-y-btn2">cancel</button>
+            </div>
+            
+          </div>
+          <div id="man-acc-div">
+            <h2 class='text-center' id="user-heading"> hello</h2>
+           
+            <div class='acc-divs'>
+               <hr/>
+              <p class='text-center'>change or update your location</p>
+            <button id="submit-location" class="back-office-y-btn2">submit location</button>
+            <hr/>
+            </div>
+            <div class='acc-divs'>
+              <p class='text-center'>change your sign in credentials</p>
+              <input id="current-password" placeholder='current-password'/>
+              <input id="new-password" placeholder='new password'/>
+              <input id="confirm-password" placeholder = 'confirm password'/>
+              <button id="change-password" class="back-office-y-btn2">change-password</button>
+              <hr/>
+            </div>
+                <div class='acc-divs'>
+                  <button id="close-man-acc" class="back-office-y-btn2">close</button>
+              </div>
+            </div>
+            
+            
+            
+        </div>
+        <nav class="navbar navbar-default navbar-fixed-top">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="#">
+                <img id="logo"src="logo8.png"/>
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+              <ul class="nav navbar-nav navbar-right">
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="new_product">BACK OFFICE</a></li>
+                <li><a href="promotion.html">PROMOTIONS</a></li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+        <script src="back-office-y.js"></script>
+  </body>
+</html>

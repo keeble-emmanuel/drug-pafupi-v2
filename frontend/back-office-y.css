@@ -1,0 +1,397 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    max-width: 99vw;
+}
+:root{
+        --background-1: rgb(248, 250, 250);
+        --background-2:red;
+        --foreground-1:rgb(255, 255, 255);
+        --foreground-2:rgba(84, 2, 17, 0.944);
+        --melon:rgba(54, 2, 33, 0.438);
+        --yellow: rgba(250, 213, 5, 0.886)
+}
+body{
+    background-color: white;
+    color: black;
+    font-family: 'Times New Roman', Times, serif;
+    
+}
+/* Custom spinner animation */
+.spinner {
+    border: 8px solid rgba(131, 129, 129, 0);
+    border-top: 8px solid rgba(183, 185, 185, 0.966); /* Blue color for the spinner */
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Animation for fading out the loading screen */
+.fade-out {
+    animation: fadeOut 1s forwards;
+}
+
+@keyframes fadeOut {
+    0% { opacity: 1; }
+    100% { opacity: 0; visibility: hidden; }
+}
+
+/* Loading Screen Container */
+#loading-screen {
+    position: fixed;
+    inset: 0; /* top:0; right:0; bottom:0; left:0; */
+    background-color: #1a202c25; /* bg-gray-900 */
+    z-index: 50;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.5s ease-in-out;
+    border-radius: 0.5rem; /* rounded-lg */
+    width: 100vw;
+    height: 100vh;
+}
+
+#loading-screen p {
+    margin-bottom: 1.5rem; /* mb-6 */
+    font-size: 1.25rem; /* text-xl */
+    line-height: 1.75rem; /* text-xl */
+    font-weight: 600; /* font-semibold */
+    color: #d1d5db; /* text-gray-300 */
+    text-align: center
+}
+.containerx {
+    display:none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff09;
+    padding: 32px 48px; /* p-8 md:p-12 */
+    border-radius: 16px; /* rounded-2xl */
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-xl */
+    z-index: 20;
+    width: 100vw;
+    text-align: center;
+    transition: opacity 0.5s ease-out; /* Add transition for a smoother fade-out */
+    position: fixed;
+    height: 100vh;
+
+}
+
+.checkmark-icon {
+    width: 96px; /* w-24 */
+    height: 96px; /* h-24 */
+    color: rgb(150, 204, 248); /* text-green-500 */
+    /* Animation for bounce effect */
+    animation: bounce 1s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(-25%);
+        animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+    }
+    50% {
+        transform: translateY(0);
+        animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+    }
+}
+h1{
+    font-size: 45px;
+    text-transform: uppercase;
+    text-decoration:underline;
+    padding: 40px 0px 20px 0px;
+    margin-top: 40px;
+}
+h2{
+    text-decoration: underline;
+}
+#container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin-top: 50px;
+    padding: 20px 0px 20px 0px;
+}
+
+#notifications{
+    width: 30vw;
+    height: 40vw;
+    border: 1px solid var(--foreground-1);
+    border-radius: 20px;
+    box-shadow: 5px 0px 40px rgba(0,0,0, .2);
+    
+}
+#notifications-display{
+    margin: 5px 5px 3px 25px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+#notifications-display li{
+    padding: 1px 0px 5px 0px;
+}
+#new-entry{
+    width:30vw;
+    height: 40vw;
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--foreground-1);
+    border-radius: 20px;
+    padding: 0px 20px 0px 20px;
+    box-shadow: 5px 0px 40px rgba(0,0,0, .2);
+    
+}
+#new-entry h2{
+    font-size: 30px;
+    text-transform: capitalize;
+}
+hr{
+    border: 1px solid rgb(12, 11, 11);
+}
+#new-entry input, select{
+    width: 60%;
+    margin: 5px;
+    border-radius: 5px;
+    padding: 2px 5px;
+    background: transparent;
+    
+    
+}
+#new-entry input::placeholder{
+    color: black;
+}
+hr{
+    border: 1px solid red
+}
+#entry-preview{
+    width: 50vw;
+    padding: 20px 0px 20px 10px;
+    margin: 0 auto;
+   
+}
+#entry-preview h2{
+    font-size: 25px;
+    text-decoration: underline;
+    text-transform: uppercase;
+}
+
+.back-office-y-btn{
+    background-color: transparent ;
+    border: 2px solid var(--foreground-2);
+    outline: none;
+    border-radius: 15px;
+    padding: 2px 10px;
+    margin: 10px 0px;
+    transition: 1s;
+}
+.back-office-y-btn2{
+    background-color: transparent ;
+    border: 2px solid white;
+    outline: none;
+    border-radius: 15px;
+    padding: 2px 10px;
+    margin: 10px auto;
+    color: white;
+    transition: 1s;
+}
+.back-office-y-btn:hover{
+    background: var(--foreground-2);
+    border:  1px solid  transparent;
+    color:white;
+    
+}
+.back-office-y-btn2:hover{
+    background: white;
+    border:  1px solid  transparent;
+    color: black;
+    
+}
+#products-display{
+    padding-left: 50px;
+    overflow-x: scroll;
+    font-size: 22px;
+    
+}
+.delete-edit{
+    background: transparent;
+    border: none;
+    outline: none;
+    margin: 0px 5px;
+    color: rgb(209, 4, 4);
+    border-radius: 10px;
+    padding: 1px 3px;
+}
+.edit{
+    background: rgb(245, 244, 250);
+    color:rgb(1, 1, 15)
+}
+select{
+    background: transparent;
+}
+dialog{
+    height: 200px;
+    width: 400px;
+    background: rgba(84, 2, 17, 0.944);
+    backdrop-filter: blur(50px);
+    left: 35vw;
+    top: 35vh;
+    color: white;
+    text-align: center;
+    padding-top: 50px;
+    border: 1px solid rgba(84, 2, 17, 0.944);
+    outline: none;
+    border-radius: 10px;
+}
+#accounts{
+    position: absolute;
+    right: 30px;
+    top: 130px;
+    z-index: 10;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: transparent;
+    border: 1px solid rgba(84, 2, 17, 0.944);
+}
+#promote-div{
+    width:30vw;
+    height: 250px;
+    margin: 0 auto;
+    position: fixed;
+    top: 45vh;
+    left: 35vw;
+    background: rgba(84, 2, 17, 0.944);
+    border-radius: 20px;
+    color: white;
+    text-align: center;
+    display: none;
+}
+#promote-div input{
+    border-radius: 20px;
+    background: transparent;
+    color: white;
+    padding: 1px 10px 1px 10px;
+    border: 1px solid white;
+    width: 80px;
+
+}
+#promote-div #per-reduct{
+    width: 60px;
+}
+.btn-div{
+    margin: 25px 0px 0px 0px;
+    display: flex;
+    flex-wrap: wrap;
+}
+#man-acc-div{
+    position: absolute;
+    top: 15vh;
+    left: 25vw;
+    width:50vw;
+    background: rgba(84, 2, 17, 0.944);
+    transition: 3s;
+    display:none;
+    color: white;
+    border-radius: 10px;
+}
+.acc-divs{
+    width: 60%;
+   
+    margin: 0 auto;
+}
+.acc-divs input{
+    width: 90%;
+    border: 1px solid white;
+    border-radius: 20px;
+    color: white;
+    height: 30px;
+    margin: 5px auto;
+    background: transparent;
+    padding: 3px 3px 3px 10px;
+
+}
+.acc-divs hr{
+    border: 1px solid rgba(252, 252, 252, 0.329);
+}
+.navbar {
+    margin-bottom: 0;
+    background-color: var(--foreground-2);
+    z-index: 9999;
+    border: 0;
+    font-size: 12px !important;
+    line-height: 1.42857143 !important;
+    letter-spacing: 4px;
+    border-radius: 0;
+    max-width: 100vw
+  }
+  
+  .navbar li a, .navbar .navbar-brand {
+    color: rgb(250, 249, 249) !important;
+  }
+  
+  .navbar-nav li a:hover, .navbar-nav li.active a {
+    color: var(--foreground-2) !important;
+    background-color: rgb(255, 255, 255) !important;
+  }
+  
+  .navbar-default .navbar-toggle {
+    border-color: transparent;
+    color: var(--foreground-1) !important;
+  }
+   .navbar #logo{
+    position: absolute;
+    top: -40px;
+    width: auto;
+    height: 130px;
+  }
+
+@media only screen and (max-width: 600px) {
+    
+    #notifications{
+    width: 79vw;
+    height: 90vw;
+    margin: 20px auto;
+    
+    
+    }
+    #new-entry{
+        height: auto;
+        width: 79vw;
+        margin: 20px auto;
+        
+        
+    }
+    #entry-preview{
+    width: 85vw;
+    border-left: none;
+    margin: 20px auto;
+   
+    
+    }
+    dialog{
+        width: 200px;
+        height: 130px;
+        left: 20vw
+    }
+    #promote-div{
+    width:80vw;
+    top: 50vh;
+    left: 10vw;
+    }
+    #man-acc-div{
+        position: absolute;
+        top: 15vh;
+        left: 15vw;
+        width:70vw;
+        
+    }
+    .navbar #logo{
+    height: 100px;
+    top: -25px;
+    }
+}

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Drug pafupi</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <link rel='stylesheet' href="search-results.css"/>
+    </head>
+    <body>
+        <div id="loading-screen">
+            <div class="spinner"></div>
+            <p>Loading...</p>
+        </div>
+        <h2 class="text-center" id="heading">search results</h2>
+        <h3 id="drug-names" class="text-center"></h3>
+        <div class="menu-bar row">
+            <div class="select col-sm-4">
+                <label>cities</label>
+                <select id="cities" name="cities" class="options">
+                    <option value="all">all</option>
+                    <option value="lilongwe">lilongwe</option>
+                    <option value="blantyre">blantyre</option>
+                    <option value="zomba">zomba</option>
+                    <option value="mzuzu">mzuzu</option>
+                    <option value="other">other</option>
+                </select>
+            </div>
+            <div class="select col-sm-4">
+                <label>strength</label>
+                <select id="strength-select" name="strength" class="options">
+                    
+                </select>
+            </div>
+            <div class="select col-sm-4">
+                <label>form</label>
+                <select id="formulation-select" name="form" class="options">
+                    
+                </select>                                   
+            </div>
+
+        </div>
+        <div id='avg_price'></div>
+        <div id='products-thumbnail-div-b'>          
+            
+        </div>
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#"><img id="logo"src="logo8.png"/></a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-right">
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="new_product">BACK OFFICE</a></li>
+                
+                </ul>
+            </div>
+            </div>
+        </nav>
+        <script src="search-results.js"></script>
+    </body>
+</html>
