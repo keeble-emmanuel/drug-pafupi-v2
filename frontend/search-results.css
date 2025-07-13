@@ -143,6 +143,7 @@ h3{
     height: fit-content;
     font-size: 14px;
     border: 1px solid red;
+    text-align: center;
     
 }
 .bar button{
