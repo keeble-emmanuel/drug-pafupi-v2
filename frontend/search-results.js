@@ -120,14 +120,14 @@ const fetchData1 =async()=>{
     //
     
     resultsFiltered2.forEach((el)=>{
-        var img = el.dosageForm == 'tablet' || el.dosageForm == 'capsules' ?'download.png':
-            el.dosageForm == 'solution' || el.dosageForm == 'powder-for-reconstitution'?'istockphoto-1304499871-612x612.jpg':
-            el.dosageForm == 'syrup'?'syrup.avif':
-            el.dosageForm =='ointment'? 'gettyimages-182665593-612x612.jpg':'eye.jpg'
+        var img = el.dosageForm == 'tablet' || el.dosageForm == 'capsules' ?'./img/download.png':
+            el.dosageForm == 'solution' || el.dosageForm == 'powder-for-reconstitution'?'./img/istockphoto-1304499871-612x612.jpg':
+            el.dosageForm == 'syrup'?'./img/syrup.avif':
+            el.dosageForm =='ointment'? './img/gettyimages-182665593-612x612.jpg':'./img/eye.jpg'
         productsThumbnailDiv.innerHTML += `
         <div class="products-thumbnail">
-                <div id="product-thumbnail-name-pcy">
-                    <p >${el.user_id.name} pharmacy</p>
+                <div id="product-img">
+                    <img src='${img}'/>
                 </div>
                 <div class="search-thumbnail-details">
                     <div class="product-details bar">
@@ -139,11 +139,16 @@ const fetchData1 =async()=>{
                     <div class="location-icon bar">
                         <a 
                         href='https://www.google.com/maps/search/?api=1&query=${el.user_id.location[0]},${el.user_id.location[1]}'
-                        ><img src="location2.svg" class="icon"/>
+                        ><img src="./img/location2.svg" class="icon"/>
                         </a>
                         
                     </div>
+                    <div class='bar'>
+                        <p>${el.user_id.name}</p>
+                    </div>
+                    <button>view details</button>
                 </div>
+                
                 
             </div>
             

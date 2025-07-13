@@ -113,8 +113,8 @@ h3{
 .products-thumbnail{
     display: flex;
     flex-wrap: wrap;
-    width: 360px;
-    height: 120px;
+    width: 180px;
+    height: 400px;
     box-shadow: 5px 0px 40px rgba(0,0,0, .2);
     margin: 15px 5px;
     border-radius: 10px;
@@ -124,35 +124,23 @@ h3{
     transform: scale(1.02, 1.02);
 }
 
-#product-thumbnail-name-pcy{
-    width: 50%;
-    height: 100%;
+#product-img{
+    width: 100%;
+    aspect-ratio: 1/1;
    
 }
-#product-thumbnail-name-pcy p{
-    font-size: 30px;
-    padding: 5px 1px 8px 8px;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    text-transform: uppercase;
+#product-img img{
+    height: 100%;
+    width: 100%;
 }
 .search-thumbnail-details{
-    font-family: "Courier New";
-    width: 50%;
-    height: 100%;
-    
-}
-.product-details{
-    width: calc(100%-50%);
-    height: 50%;
-    
-}
-.product-details p{ 
-    color: var(--foreground-2);
-    font-size: 18px;
+    width: 100%;
 }
 .bar{
-    height: calc(100%/3);
-    font-size: 16px;
+    width: 100%;
+    height: fit-content;
+    font-size: 14px;
+    border: 1px solid red;
 }
 
 .location-icon img{
