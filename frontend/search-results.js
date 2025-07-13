@@ -118,42 +118,6 @@ const fetchData1 =async()=>{
     console.log(avg_price, divded)
     avg_price_display.textContent = 'AVG_Price: K'+ avg_price.toFixed(2)
     //
-    
-    resultsFiltered2.forEach((el)=>{
-        var img = el.dosageForm == 'tablet' || el.dosageForm == 'capsules' ?'./img/download.png':
-            el.dosageForm == 'solution' || el.dosageForm == 'powder-for-reconstitution'?'./img/istockphoto-1304499871-612x612.jpg':
-            el.dosageForm == 'syrup'?'./img/syrup.avif':
-            el.dosageForm =='ointment'? './img/gettyimages-182665593-612x612.jpg':'./img/eye.jpg'
-        productsThumbnailDiv.innerHTML += `
-        <div class="products-thumbnail">
-                <div id="product-img">
-                    <img src='${img}'/>
-                </div>
-                <div class="search-thumbnail-details">
-                    <div class="product-details bar">
-                        <p><b>exp:${el.expiryDate?el.expiryDate.substring(0, 7):'N/A'} </b></p>
-                    </div>
-                    <div class="product-details bar">
-                        <p>${el.drugStrength?el.drugStrength:'N/A'} </p>
-                    </div>
-                    <div class="location-icon bar">
-                        <a 
-                        href='https://www.google.com/maps/search/?api=1&query=${el.user_id.location[0]},${el.user_id.location[1]}'
-                        ><img src="./img/location2.svg" class="icon"/>
-                        </a>
-                        
-                    </div>
-                    <div class='bar'>
-                        <p>${el.user_id.name}</p>
-                    </div>
-                    <button>view details</button>
-                </div>
-                
-                
-            </div>
-            
-    `
-    })
     productsThumbnailDivB.appendChild(productsThumbnailDiv)
     loadingScreen.style.display = 'none';
     //
@@ -242,25 +206,32 @@ const fetchData =async()=>{
     //
     
     resultsFiltered2.forEach((el)=>{
-        
+        var img = el.dosageForm == 'tablet' || el.dosageForm == 'capsules' ?'./img/download.png':
+            el.dosageForm == 'solution' || el.dosageForm == 'powder-for-reconstitution'?'./img/istockphoto-1304499871-612x612.jpg':
+            el.dosageForm == 'syrup'?'./img/syrup.avif':
+            el.dosageForm =='ointment'? './img/gettyimages-182665593-612x612.jpg':'./img/eye.jpg'
         productsThumbnailDiv.innerHTML += `
         <div class="products-thumbnail">
-                <div id="product-thumbnail-name-pcy">
-                    <p >${el.user_id.name} pharmacy</p>
+                <div id="product-img">
+                    <img src='${img}'/>
                 </div>
                 <div class="search-thumbnail-details">
                     <div class="product-details bar">
-                        <p><b>exp:${el.expiryDate?el.expiryDate.substring(0, 7):'N/A'} </b></p>
+                        <p><b>${el.tradeName} </b></p>
                     </div>
                     <div class="product-details bar">
-                        <p>${el.drugStrength?el.drugStrength:'N/A'} </p>
+                        <p>$${el.price} </p>
                     </div>
-                    <div class="location-icon bar">
-                        <a 
-                        href='https://www.google.com/maps/search/?api=1&query=${el.user_id.location[0]},${el.user_id.location[1]}'
-                        ><img src="location2.svg" class="icon"/>
-                        </a>
-                        
+                    
+                    <div class='bar'>
+                        <button>view details</button>
+                        <div class="location-icon">
+                            <a 
+                            href='https://www.google.com/maps/search/?api=1&query=${el.user_id.location[0]},${el.user_id.location[1]}'
+                            ><img src="/img/location2.svg" class="icon"/>
+                            </a>
+                            
+                        </div>
                     </div>
                 </div>
                 

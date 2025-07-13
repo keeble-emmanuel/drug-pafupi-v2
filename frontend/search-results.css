@@ -114,10 +114,10 @@ h3{
     display: flex;
     flex-wrap: wrap;
     width: 180px;
-    height: 400px;
+    height: 230px;
     box-shadow: 5px 0px 40px rgba(0,0,0, .2);
     margin: 15px 5px;
-    border-radius: 10px;
+    border-radius: 15px;
     transition: box-shadow 0.5s;
 }
 .products-thumbnail:hover{
@@ -127,11 +127,13 @@ h3{
 #product-img{
     width: 100%;
     aspect-ratio: 1/1;
+    
    
 }
 #product-img img{
     height: 100%;
     width: 100%;
+    border-radius: 15px;
 }
 .search-thumbnail-details{
     width: 100%;
@@ -141,6 +143,13 @@ h3{
     height: fit-content;
     font-size: 14px;
     border: 1px solid red;
+    
+}
+.bar button{
+    border: 1px solid var(--foreground-2);
+    border-radius: 8px;
+    padding: 0px 8px;
+    margin: 0px auto;
 }
 
 .location-icon img{
@@ -198,8 +207,8 @@ h3{
     }
 
     .products-thumbnail{
-    width: 80vw;
-    height: 20vw;
+    width: 30vw;
+    height: 60vw;
     margin: 15px 5px;
     }
     #product-thumbnail-name-pcy p{
