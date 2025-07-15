@@ -118,13 +118,12 @@ const fetchData1 =async()=>{
     console.log(avg_price, divded)
     avg_price_display.textContent = 'AVG_Price: K'+ avg_price.toFixed(2)
     //
-    productsThumbnailDivB.appendChild(productsThumbnailDiv)
-    loadingScreen.style.display = 'none';
-    //
+    
+   
     
     
 }
-fetchData1()
+
 
 const fetchData =async()=>{
     loadingScreen.style.display = 'grid'
@@ -244,6 +243,7 @@ const fetchData =async()=>{
     
 }
 fetchData()
+fetchData1()
 
 citySelected.addEventListener('change', ()=>{   
     fetchData();
