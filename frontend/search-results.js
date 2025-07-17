@@ -7,7 +7,7 @@ const loadingScreen = document.getElementById('loading-screen')
 
 const searchFiters = JSON.parse(localStorage.getItem("searchfilter")) || [];
 nameDisplay.textContent  = searchFiters[0].genericName +' (' + searchFiters[0].tradeName + ')'
-
+let allData
 const fetchData1 =async()=>{
     const fetched = await fetch(`${window.location.origin}/searched-page`,{
         method: 'POST',
@@ -20,6 +20,7 @@ const fetchData1 =async()=>{
         })
     })
     const results = await fetched.json();
+    allData = results;
     console.log(results)
     //
     var drugstrengthArray = [];
@@ -55,9 +56,7 @@ const fetchData1 =async()=>{
     })
 
     //data
-     const productsThumbnailDiv = document.createElement('div');
-    productsThumbnailDiv.id = "products-thumbnail-div";
-    productsThumbnailDivB.textContent = '';
+    
     var citiesz = ['zomba', 'blantyre', 'lilongwe', 'mzuzu']
     //
     var drugstrengthArray = [];
@@ -118,9 +117,6 @@ const fetchData1 =async()=>{
     console.log(avg_price, divded)
     avg_price_display.textContent = 'AVG_Price: K'+ avg_price.toFixed(2)
     //
-    
-   
-    
     
 }
 
@@ -246,8 +242,14 @@ const fetchData =async()=>{
     loadingScreen.style.display = 'none';
     
 }
-fetchData()
 fetchData1()
+fetchData()
+
+const wet = async()=>{
+    await fetchData1()
+    await console.log(allData)
+}
+wet()
 
 citySelected.addEventListener('change', ()=>{   
     fetchData();
@@ -258,3 +260,5 @@ document.getElementById('strength-select').addEventListener('change', ()=>{
 document.getElementById('formulation-select').addEventListener('change', ()=>{
     fetchData();
 })
+
+
