@@ -134,7 +134,8 @@ h3{
 #product-img img{
     height: 100%;
     width: 100%;
-    border-radius: 15px;
+    border-radius: 15px 15px 0px 0px;
+    border: 1px solid white
 }
 .search-thumbnail-details{
     width: 100%;
@@ -164,7 +165,7 @@ h3{
 
 .location-icon img{
     width: 20px;
-    transform: translate(150%, -150%);
+    transform: translate(190%, -150%);
     z-index: 99;
 
 }
@@ -178,6 +179,7 @@ h3{
     left: calc(50vw/2);
     z-index: 22;
     margin-top: 100px;
+    display: none;
     
 
 }
