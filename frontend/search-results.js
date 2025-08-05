@@ -13,7 +13,6 @@ var allData =[]
 //
 var allD = []
 var filTered = []
-
 const fetchData =async()=>{
     //loadingScreen.style.display = 'grid'
      const fetched = await fetch(`${window.location.origin}/searched-page`,{
@@ -28,14 +27,13 @@ const fetchData =async()=>{
     })
     const results = await fetched.json();
     allD = results
-    console.log(results)
+    
     var drugstrengthArray = [];
     
     allD.forEach((el)=>{
         drugstrengthArray.unshift(el.drugStrength)
     })
     var drugstrengthArray2 = [... new Set(drugstrengthArray)];
-    console.log(drugstrengthArray, drugstrengthArray2)
     document.getElementById('strength-select').innerHTML =`
         <option value = "all">all</option>
     `
@@ -51,7 +49,6 @@ const fetchData =async()=>{
         drugformArray.unshift(el.dosageForm)
     })
     var drugformArray2 = [... new Set(drugformArray)];
-    console.log(drugformArray, drugformArray2)
     document.getElementById('formulation-select').innerHTML =`
         <option value="all">all</option>
     `
@@ -62,11 +59,8 @@ const fetchData =async()=>{
     })
 }
 //
-const filterFunc =(par)=>{
-   
-
+const filterFunc =(par)=>{ 
     //data
-    
     var citiesz = ['zomba', 'blantyre', 'lilongwe', 'mzuzu']
     //
     var drugstrengthArray = [];
@@ -74,9 +68,7 @@ const filterFunc =(par)=>{
     par.forEach((el)=>{
         drugstrengthArray.unshift(el.drugStrength)
     })
-    var drugstrengthArray2 = [... new Set(drugstrengthArray)];
-    console.log(drugstrengthArray, drugstrengthArray2)
-    
+    var drugstrengthArray2 = [... new Set(drugstrengthArray)];    
     //filter by city
     var resultsFiltered = par.filter((el)=>{
         if(citySelected.value == 'all'){
@@ -87,18 +79,14 @@ const filterFunc =(par)=>{
         }
         
     })
-    console.log(resultsFiltered, '0', document.getElementById('strength-select').value)
     //
     var resultsFiltered1 = resultsFiltered.filter((el)=>{
         if(document.getElementById('strength-select').value == 'all'){
-            console.log(resultsFiltered)
             return resultsFiltered1 = resultsFiltered
         }else{
             return el.drugStrength == document.getElementById('strength-select').value
-        }
-        
+        } 
     })
-    console.log(resultsFiltered1)
     //
     var resultsFiltered2 = resultsFiltered1.filter((el)=>{
          if(document.getElementById('formulation-select').value == 'all'){
@@ -108,7 +96,6 @@ const filterFunc =(par)=>{
         }
         
     })
-    console.log(resultsFiltered2)
     //
 
     var priceArray = []
@@ -124,7 +111,6 @@ const filterFunc =(par)=>{
     
     var divded =resultsFiltered2.length
     avg_price = isNaN(parseFloat(total) / parseFloat(divded))?0: parseFloat(total) / parseFloat(divded)
-    console.log(avg_price, divded)
     avg_price_display.textContent = 'AVG_Price:K '+ avg_price.toFixed(2)
     filTered = resultsFiltered2
 
@@ -149,7 +135,7 @@ const showp=(para)=>{
                         <p><b>${el.tradeName} </b></p>
                     </div>
                     <div class="product-details bar">
-                        <p>$${el.price} </p>
+                        <p>K${Number(el.price).toFixed(2)} </p>
                     </div>
                     <div class='bar'>
                         <p><b>${el.user_id.name} </b></p>
@@ -180,7 +166,6 @@ const shoe =async()=>{
     await fetchData()
     await filterFunc(allD)
     showp(filTered)
-    console.log(allD)
 }
 shoe()
 

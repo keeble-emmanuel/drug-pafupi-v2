@@ -135,7 +135,7 @@ h3{
     height: 100%;
     width: 100%;
     border-radius: 15px 15px 0px 0px;
-    border: 1px solid white
+    border-bottom: 2px solid white;
 }
 .search-thumbnail-details{
     width: 100%;
@@ -242,7 +242,7 @@ h3{
     }
 
     .location-icon img{
-    width: 18px;
+    width: 14px;
     width: 20px;
     transform: translate(160%, -130%);
     z-index: 99;
